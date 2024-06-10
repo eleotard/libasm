@@ -1,6 +1,7 @@
 NAME = libasm.a
 
-SRCS = ft_strlen.s \
+SRCS =	ft_strlen.s \
+		ft_strcpy.s \
 
 FLAGS = -Wall -Werror
 
