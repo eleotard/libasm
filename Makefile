@@ -15,7 +15,8 @@ ${NAME} : ${OBJS}
 	ar rcs ${NAME} ${OBJS} 
 
 clean:
-	rm *.o 
+	rm ${OBJS}
+	rm a.out
 
 fclean: clean
 	rm ${NAME}

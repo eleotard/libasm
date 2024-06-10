@@ -1,11 +1,15 @@
 		global ft_strlen
 		section .text
 ft_strlen:
-	mov		ecx, 0
+	mov		rcx, 0
 
 while_loop:
-	cmp		[rdi], 0
-	je 		end_loop
+	cmp		byte [rdi], 0
+	je 		end_loop			; si c'est egal, end_loop
 	add		rdi, 1
+	inc		rcx
+	jmp		while_loop
 
-end
+end_loop:
+	mov rax, rcx
+	ret

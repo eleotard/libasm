@@ -1,12 +1,18 @@
 #include <stdio.h>
-#include <inttypes.h>
-#include <stdlib.h>
+#include <string.h>
+#include "libasm.h"
 
-size_t ft_strlen(char *s);
+// size_t ft_strlen(char *s);
 
-int main(void)
+int main(void) 
 {
-	//char *s = NULL;
-	printf("%ld\n", ft_strlen("oui"));
-	//strlen(s);
+	/*FT_STRLEN*/
+	char *s = "zinzinnnnnKHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH";
+	printf("strlen: %ld\n", strlen("ouiouioui"));
+	printf("ft_strlen: %ld\n", ft_strlen("ouiouioui"));
+	printf("strlen: %ld\n", strlen(s));
+	printf("ft_strlen: %ld\n", ft_strlen(s));
+	
+
+	
 }

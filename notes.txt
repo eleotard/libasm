@@ -142,3 +142,6 @@ ou	cmovl rax, rsi par exemple (trad: si cest le cas, fais ca)
 
 	Quand ya "add rsi, 8" on passe au pointeur suivent car la taille d'un pointeur
 	est de 8 octets
+
+//COMPILATION
+	-L. -lasm doit etre mis apres le fichier .c
