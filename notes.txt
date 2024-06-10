@@ -1,0 +1,82 @@
+//.text
+	//->instructions du programme
+//.data
+	//->variables statiques / globales initialisees
+//.bss
+	//->pareil mais pas initialisees
+//stack
+	//-> var normales intilisees ou non
+
+
+
+/////////////
+	stack
+	 | (vers le bas)
+
+	 ^
+	 |	
+	heap
+/////////////
+	bss
+/////////////
+	data
+/////////////
+	text
+/////////////
+
+
+
+
+esp ->	pointeur de pile (sommet de la pile)
+ebp ->  pointeur de cadre actuel
+
+
+
+/*avant*/
+push epb
+mov epb, esp
+
+call <function>
+	-> pousse l'adresse de retour de la fonction sur la pile
+	-> saute a la fonction appelee
+
+/*dans la fonction*/
+push ebp -> sauvegarder le pointeur de cadre precedent
+
+mov ebp, esp
+	-> copie la valeur de esp dans ebp
+	-> etablie un nouveau cadre de pile
+	-> du coup, met a jour le pointeur de cadre pour la fonction actuelle
+
+
+lea ("leave")
+	-> Restaurer esp (pointeur de pile) à la valeur du pointeur de cadre actuel
+		<=> mov esp, epb
+	-> Restaurer ebp (pointeur de cadre) à la valeur précédente, sauvegardée au début de la fonction
+		<=> pop epb
+
+ret
+	-> saute l'adresse de retour precedemment poussee sur la pile
+
+
+//SAUVEGARDER DE L'ESPACE AVEC INITIALISATION
+	db: define byte
+		-> definit un octet tout seul ou une sequence d'octets
+	dw: define word
+		-> 1 word / 2 octets / 16 bits
+	dd: define double word
+		-> 2 words / 4 octets / 32 bits
+	dq: define quad word
+		-> 4 words / 8 octets / 64 bits
+	dt: define ten bytes
+		-> 10 octets
+
+//SAVE DE L'ESPACE SANS INITIALISATION
+	buffer:         resb    64              ; reserve 64 bytes
+	wordvar:        resw    1               ; reserve a word
+	intarray: 		resd	10 				; array of ten integers
+	realarray:      resq    10              ; array of ten reals
+		->  réserver de l'espace pour un tableau de 10 éléments
+		de type quadword (64 bits chacun) (des nombre reels appeles reals,
+		ce sont des nombres a virgule flottante)
+
