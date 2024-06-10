@@ -7,10 +7,19 @@
 //stack
 	//-> var normales intilisees ou non
 
-
+int var1; 					// bss
+char var2[] = "buf1";		// data
+int	main()
+{
+	int var3;						// stack
+	static int var4;				// bss
+	static char var5[] = "buf2"; 	// data
+	char * var6; 					// stack
+	var6 = malloc( 512 ); 			// heap
+}
 
 /////////////
-	stack
+	stack     (<- val max ici)
 	 | (vers le bas)
 
 	 ^
@@ -80,3 +89,56 @@ ret
 		de type quadword (64 bits chacun) (des nombre reels appeles reals,
 		ce sont des nombres a virgule flottante)
 
+//COMPARAISON
+	cmp truc1, truc2 (trad : if (truc1 < truc2))
+	jump truc
+		-> je:	jumps to a label if the previous comparison was equal
+		-> jne:	jump if not equal
+		-> jl:	jump if less
+		-> jnl: jump if not less
+		-> jg:	jump if greater
+		-> jng:	jump if not greater
+ou	cmovl rax, rsi par exemple (trad: si cest le cas, fais ca)
+
+//#define MAXLINES 8
+				section .bss
+	maxlines	equ 	8
+
+//REGISTRES
+	R0 RAX	//return value (si c'est un int, sinon cest dans xmm0 pour les float)
+	R1 RCX	//4e arg
+	R2 RDX	//3e arg
+	R3 RBX  //GERE STACK					;doit etre preserve avt ft
+	R4 RSP	//GERE STACK (pt de pile)
+	R5 RBP	//GERE STACK (pt de cadre)		;doit etre preserve avt ft
+	R6 RSI  //2e arg
+	R7 RDI	//1e arg
+	R8		//5e arg
+	R9		//6e arg
+	R10
+	R11
+	R12										;doit etre preserve avt ft
+	R13										;doit etre preserve avt ft
+	R14										;doit etre preserve avt ft
+	R15										;doit etre preserve avt ft
+
+	-> rdi: premier argument de la fonction qui va etre appelee en dessous
+
+//PUSH - POP 
+	-> push:	rsp - 8
+	-> pop:		rsp + 8
+
+//PROCESSOR FLAG - RFLAGS
+	s (sign)
+	z (zero)
+	c (carry)
+	o (overflow)
+
+	-> jnz label: si le flag Z(Zero) du processeur est set, saut au label
+
+//ARGC ARGV!!!!!
+	rdi -> nb d'arguments (<=> argc)
+	rsi -> pointe vers le début du tableau des pointeurs d'arguments (<=> argv)
+
+	Quand ya "add rsi, 8" on passe au pointeur suivent car la taille d'un pointeur
+	est de 8 octets
