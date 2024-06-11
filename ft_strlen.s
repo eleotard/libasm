@@ -1,6 +1,7 @@
 		global ft_strlen
 		section .text
 ft_strlen:
+	xor		rax, rax
 	mov		rcx, 0
 
 while_loop:
