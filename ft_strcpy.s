@@ -2,6 +2,7 @@
 	section .text
 ft_strcpy:
 	xor 	cl, cl					; rcx mais que les 8 premiers bits
+	xor		rax, rax
 	push	rdi
 
 while_loop:
@@ -16,7 +17,6 @@ while_loop:
 
 end_loop:
 	mov 	byte [rdi], 0
-	pop		rdi
-	mov		rax, rdi
+	pop		rax
 	ret
 	

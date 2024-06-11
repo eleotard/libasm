@@ -10,7 +10,8 @@ int main(void)
 	/*FT_STRLEN*/
 	//CONSTANT
 	char s[10] = "ab";
-	const char *s1 = "bonjour";
+	const char *s1 = "caca";
+	const char *s2 = "aba";
 
 	printf("strlen: %ld\n", strlen("ouiouioui"));
 	printf("ft_strlen: %ld\n", ft_strlen("ouiouioui"));
@@ -24,8 +25,12 @@ int main(void)
 	printf("\n");
 
 	/*FT_STRCMP*/
-	printf("strcmp: [%s]\n", strcmp(s, s1)); //stack smash si dest trop courte
-	printf("ft_strcmp: [%s]\n", ft_strcmp(s, s1));
+	printf("strcmp: [%d]\n", strcmp(s1, s2));
+	printf("ft_strcmp: [%d]\n", ft_strcmp(s1, s2));
 	printf("\n");
 
 }
+
+//um compteur 
+//une variable pour stocker le resultat
+//res = byte 1ere chaine - byte 2eme chaine
