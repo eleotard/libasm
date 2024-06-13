@@ -66,18 +66,21 @@ int main(void)
 	printf("errno: %d\n", errno);
 	printf("ft_write: %ld\n", ft_write(5, "bonjour", 7));
 	printf("errno: %d\n", errno);
+	printf("\n");
+	
 
 	/*FT_READ*/
+	
 	char buff[1024];
-	printf("read: %ld\n", read(0, buff, 20));
-	// for(int i = 0; i < 4; i++)
-	// 	printf("buff[i]: [%c]\n", buff[i]);	
+	char *test = NULL;
+	bzero(buff, sizeof(buff));
+	printf("read: %ld\n", read(0, test, 20));
 	printf("buff: %s\n", buff);
 	printf("errno: %d\n", errno);
 	bzero(buff, sizeof(buff));
-	// printf("ft_read: %ld\n", ft_read(0, buff, 20));
-	// printf("buff: %s\n", buff);
-	// printf("errno: %d\n", errno);
+	printf("ft_read: %ld\n", ft_read(0, test, 20));
+	printf("buff: %s\n", buff);
+	printf("errno: %d\n", errno);
 
 
 
