@@ -42,7 +42,7 @@ int main(void)
 	/*FT_STRLEN*/
 	//CONSTANT
 	char s[10] = "ab";
-	const char *s1 = "caca";
+	const char *s1 = "soir";
 	const char *s2 = "aba";
 
 	printf("strlen: %ld\n", strlen("ouiouioui"));
@@ -68,7 +68,16 @@ int main(void)
 	printf("errno: %d\n", errno);
 
 	/*FT_READ*/
-	
+	char buff[1024];
+	printf("read: %ld\n", read(0, buff, 20));
+	// for(int i = 0; i < 4; i++)
+	// 	printf("buff[i]: [%c]\n", buff[i]);	
+	printf("buff: %s\n", buff);
+	printf("errno: %d\n", errno);
+	bzero(buff, sizeof(buff));
+	// printf("ft_read: %ld\n", ft_read(0, buff, 20));
+	// printf("buff: %s\n", buff);
+	// printf("errno: %d\n", errno);
 
 
 
