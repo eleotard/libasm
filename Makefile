@@ -19,11 +19,10 @@ ${NAME} : ${OBJS}
 	ar rcs ${NAME} ${OBJS} 
 
 clean:
-	rm ${OBJS}
-	rm a.out
+	rm -rf ${OBJS}
 
 fclean: clean
-	rm ${NAME}
+	rm -rf ${NAME}
 
 re: fclean all
 
