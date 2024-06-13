@@ -1,11 +1,4 @@
-#include <stdio.h>
-#include <string.h>
 #include "libasm.h"
-#include <unistd.h>
-#include <errno.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
 
 # define CCOLOR   "\033[0m"
 # define CRED     "\033[1;31m"
@@ -81,6 +74,11 @@ int main(void)
 	printf("ft_read: %ld\n", ft_read(0, test, 20));
 	printf("buff: %s\n", buff);
 	printf("errno: %d\n", errno);
+
+	/*STRDUP*/
+	char *lol = ft_strdup("cou");
+	printf("errno: %d\n", errno);
+	__builtin_printf("%s\n", lol);
 
 
 
