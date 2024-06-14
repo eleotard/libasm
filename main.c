@@ -5,7 +5,7 @@
 
 void fill_buffer(char* buffer) {
     int i = 0;
-    while (i < BUFFER_SIZE) {
+    while (i < (BUFFER_SIZE - 1)) {
         buffer[i] = 'a';
         i++;
     }
