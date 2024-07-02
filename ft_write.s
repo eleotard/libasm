@@ -44,15 +44,12 @@ ft_write:
 	syscall					; invoke operating system to do the write
 	cmp		rax, 0
 	jl		error
-	jmp 	end
+	ret
 
 error:
 	neg		rax
 	mov		rcx, rax
-	call	__errno_location wrt ..plt ; renvoie un pt sur la variable errno
-	mov		[rax], rcx			; met le code d'erreur dans errno
-	mov		rax, -1
-	ret
-
-end:
+	call	__errno_location wrt ..plt 	; renvoie un pt sur la variable errno
+	mov		[rax], rcx					; met le code d'erreur dans errno
+	mov		rax, -1						; return -1
 	ret
