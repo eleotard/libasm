@@ -9,7 +9,7 @@ SRCS =	ft_strlen.s \
 
 FLAGS = -Wall -Werror
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 OBJS = ${SRCS:%.s=%.o}
 
@@ -26,7 +26,6 @@ ${NAME} : ${OBJS}
 
 clean:
 	rm -rf ${OBJS}
-	rm a.out
 
 fclean: clean
 	rm -rf ${NAME}

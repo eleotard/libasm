@@ -1,7 +1,6 @@
 		extern ft_strlen
 		extern ft_strcpy
 		extern malloc
-		extern __errno_location
 		global ft_strdup
 		section .text
 ; params: const char str (rdi)
