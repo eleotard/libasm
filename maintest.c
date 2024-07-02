@@ -50,7 +50,7 @@ static void	ft_strcmp_tests(const char *s1, const char *s2)
 	if (res_1 == res_2)
 		printf("ft_strcmp(\"%s\", \"%s\"): %s%ld%s\n", s1, s2, CGREEN, res_2, CCOLOR);
 	else
-		printf("ERROR\nft_strcmp(\"%s\", \"%s\"): %s%ld%s\n", s1, s2, CRED, res_2, CCOLOR);
+		printf("ERROR\nft_strcmp(\"%s\", \"%s\"): %s%ld%s\t\t resultat attendu: %ld\n", s1, s2, CRED, res_2, CCOLOR, res_1);
 	printf("\n");
 }
 
@@ -89,7 +89,7 @@ static void	ft_read_tests(int fd, int read_limit)
 	errno = 0;
 	bzero(buff1, BUFFER_SIZE);
 	bzero(buff2, BUFFER_SIZE);
-	if (!fd)
+	if (fd >= 0 && fd < 3)
 		printf("Please write 2 times the same string to see the comparaison of results between the true read function and ft_read :\nFor the true read function :\n");
 	res_1 = read(fd, buff1, read_limit);
 	errno_1 = errno;
@@ -115,13 +115,13 @@ static void	ft_read_tests(int fd, int read_limit)
 	}
 	if (errno_1 == errno_2)
 	{
-		printf("\nerrno: %s%d%s\n", CGREEN, errno_2, CCOLOR);
+		printf("errno: %s%d%s\n", CGREEN, errno_2, CCOLOR);
 	}
 	else
 	{
-		printf("\nerrno: %s%d%s\n", CRED, errno_2, CCOLOR);
+		printf("errno: %s%d%s\n", CRED, errno_2, CCOLOR);
 	}
-
+	printf("\n");
 }
 
 static void	ft_strdup_tests(const char *src)
@@ -152,8 +152,8 @@ int main(void)
 	printf(CTRUC "------------------------STRCPY TESTS------------------------\n" CCOLOR);
 	char dest[100];
 	bzero(dest, 100);
-	ft_strcpy_tests(dest, "gougou");
-	ft_strcpy_tests(dest, "gagag");
+	ft_strcpy_tests(dest, "nounou");
+	ft_strcpy_tests(dest, "nanan");
 
 	printf(CTRUC "------------------------STRCMP TESTS------------------------\n" CCOLOR);
 	ft_strcmp_tests("bonjour", "bonjour");

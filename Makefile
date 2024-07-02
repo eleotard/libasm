@@ -9,7 +9,7 @@ SRCS =	ft_strlen.s \
 
 FLAGS = -Wall -Werror
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
 OBJS = ${SRCS:%.s=%.o}
 
