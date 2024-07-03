@@ -14,3 +14,12 @@ while_loop:
 end_loop:
 	mov rax, rcx
 	ret
+
+
+;la section .text d'un programme se situe dans le fichier executable
+;elle est chargee en memoire avec seulement les droits d'ex et de lecture
+
+;global : sert a declarer une etiquette/symbole (comme une ft ou une variable)
+	;comme etant accessible en dehors du fichier
+
+;labels | instructions | operands

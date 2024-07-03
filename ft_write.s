@@ -18,6 +18,7 @@ global ft_write
 ;	de __errno_location ne peut pas être déterminée statiquement lors de 
 ;	l'édition des liens. Elle doit être résolue dynamiquement lors de
 ;	l'exécution
+;Le linkage se fait a la compilation (on lie les .o, les references)
 
 ;PLT (Procedure Linkage Table) 
 ;Structure utilisée par le système d'exploitation et le linker pour gérer les
